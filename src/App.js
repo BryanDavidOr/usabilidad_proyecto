@@ -362,6 +362,7 @@ function App() {
                                       touched.FechaNacimiento
                                     }
                                     id="fecha"
+                                    alt= "formato día, mes, año"
                                     label="Fecha de nacimiento"
                                     placeholder = "Por favor ingresa tu fecha de nacimiento"
                                     name="FechaNacimiento"
