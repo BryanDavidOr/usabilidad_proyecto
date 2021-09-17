@@ -223,7 +223,7 @@ function App() {
                         color="primary"
                         variant="contained"
                       >
-                        Aceptar
+                        Regresar
                       </Button>
                     </center>
                   </Box>
@@ -364,10 +364,11 @@ function App() {
                                     id="fecha"
                                     alt= "formato día, mes, año"
                                     label="Fecha de nacimiento"
-                                    placeholder = "Por favor ingresa tu fecha de nacimiento"
+                                    //placeholder = "Por favor ingresa tu fecha de nacimiento"
                                     name="FechaNacimiento"
                                     fullWidth={true}
                                     className={useStyles.margin}
+                                    placeholder ="Formato (día, mes, año)"
                                     type="date"
                                     autoComplete="off"
                                     value={values.FechaNacimiento}
