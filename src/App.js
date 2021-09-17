@@ -239,8 +239,8 @@ function App() {
                     />
                   </center>
                   </div>
-                  <Typography className={classes.labels_error} variant="h3" align ="center">INFORMACIÓN</Typography>
-                  <Typography align ="center">{cedula? "NÚMERO DE CÉDULA ICORRECTO " : "FECHA DE NACIMIENTO INCORRECTA"}</Typography>
+                  <Typography className={classes.labels_error}   variant="h3" align ="center">INFORMACIÓN</Typography>
+                  <Typography align ="center" tabIndex = "0">{cedula === false?  "NÚMERO DE CÉDULA ICORRECTO " : "FECHA DE NACIMIENTO INCORRECTA"}</Typography>
                   <Box md = "2">
                     <center>
                       <Button
