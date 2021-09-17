@@ -40,6 +40,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 25,
     fontSize: 13,
   },
+  labels_error: {
+    fontWeight: 600,
+    marginTop: 25,
+    fontSize: 25,
+    color: "gray"
+  },
   modal: {
     display: "flex",
     alignItems: "center",
@@ -59,6 +65,8 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [correct, setCorrect] = React.useState(false);
+  const [cedula, setcedula] = React.useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -67,7 +75,7 @@ function App() {
   const handleClose = () => {
     setOpen(false);
   };
-/*
+  /*
   const validarCedula = (value) => {
     let error;
     var cad = value.trim();
@@ -99,7 +107,9 @@ function App() {
 */
   return (
     <div className="App">
-      <a href="#content" role='navigation'>Ir al contenido principal</a>
+      <a href="#content" role="navigation">
+        Ir al contenido principal
+      </a>
       <header className="App-header">
         <Fragment>
           <center>
@@ -112,12 +122,14 @@ function App() {
           </center>
         </Fragment>
       </header>
-      <body id = "content" tabIndex = "-1" role='main'>
+      <body id="content" tabIndex="-1" role="main">
         <Modal
           className={classes.modal}
           open={open}
           onClose={handleClose}
           closeAfterTransition
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
           BackdropComponent={Backdrop}
           BackdropProps={{
             timeout: 500,
@@ -125,17 +137,26 @@ function App() {
         >
           <Fade in={open}>
             <div className={classes.paper}>
+              <div id="modal-modal-title">
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  color="primary"
+                  className={classes.text}
+                  align="center"
+                >
+                  Datos consulta
+                </Typography>
+              </div>
               <Card>
-                <CardContent>
-                    <div>
-                    <Fragment>
-                    <ul style ={{listStyle:'none'}}>
+                {correct? <CardContent>
+                  <div id="modal-modal-description">
+                    <ul style={{ listStyle: "none" }}>
                       <li>
                         <Typography
                           color="primary"
                           className={classes.text}
                           align="left"
-                          
                         >
                           Nombre: ORTUÑO BARRERA BRYAN DAVID
                         </Typography>
@@ -145,7 +166,6 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
-                          
                         >
                           PROVINCIA: PICHINCHA
                         </Typography>
@@ -155,7 +175,6 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
-                          
                         >
                           CANTÓN: QUITO
                         </Typography>
@@ -165,7 +184,6 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
-                          
                         >
                           PARROQUIA: SAN BARTOLO
                         </Typography>
@@ -175,7 +193,6 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
-                          
                         >
                           CENTRO DE VACUNACIÓN: INSTITUTO SUPERIOR CONSEJO
                           PROVINCIAL DE PICHINCHA
@@ -186,7 +203,6 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
-                          
                         >
                           DIRECCIÓN: AJAVI OE4-154 Y AV. CARDENAL DE LA TORRE
                         </Typography>
@@ -196,7 +212,6 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
-                        
                         >
                           PRIMERA DOSIS: VACUNADO/A (SINOVAC)
                         </Typography>
@@ -206,29 +221,26 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
-                       
                         >
                           SEGUNDA DOSIS: VACUNADO/A (SINOVAC)
                         </Typography>
-                      </li >
+                      </li>
                     </ul>
-                    </Fragment>
-                    </div>
-                  
+                  </div>
                   <Box m={2}>
-                      <Button
-                        onClick = {null}
-                        color="primary"
-                        variant="outlined"
-                        className = {classes.button}
-                      >
-                        Actualizar registro de vacunación
-                      </Button>
+                    <Button
+                      onClick={null}
+                      color="primary"
+                      variant="outlined"
+                      className={classes.button}
+                    >
+                      Actualizar registro de vacunación
+                    </Button>
                   </Box>
                   <Box>
                     <center>
                       <Button
-                        onClick = {handleClose}
+                        onClick={handleClose}
                         color="primary"
                         variant="contained"
                       >
@@ -236,7 +248,32 @@ function App() {
                       </Button>
                     </center>
                   </Box>
-                </CardContent>
+                </CardContent> : 
+                <CardContent>
+                  <div id="modal-modal-description">
+                  <center>
+                    <img
+                      src="./icono_información.png"
+                      className="App-head"
+                      alt="Icono de información de error"
+                      width="350px"
+                    />
+                  </center>
+                  </div>
+                  <Typography className={classes.labels_error} variant="h3" align ="center">INFORMACIÓN</Typography>
+                  <Typography align ="center">{cedula? "NÚMERO DE CÉDULA ICORRECTO " : "FECHA DE NACIMIENTO INCORRECTA"}</Typography>
+                  <Box md = "2">
+                    <center>
+                      <Button
+                        onClick={handleClose}
+                        color="primary"
+                        variant="contained"
+                      >
+                        Aceptar
+                      </Button>
+                    </center>
+                  </Box>
+                </CardContent>}
               </Card>
             </div>
           </Fade>
@@ -250,11 +287,11 @@ function App() {
                   bgcolor="#00809c"
                   justifyContent="center"
                 >
-                <h1 style = {{margin: 1}}>
-                  <Typography className={classes.title}>
-                    CONSULTA TU CENTRO DE VACUNACIÓN
-                  </Typography>
-                </h1>
+                  <h1 style={{ margin: 1 }}>
+                    <Typography className={classes.title}>
+                      CONSULTA TU CENTRO DE VACUNACIÓN
+                    </Typography>
+                  </h1>
                 </Box>
                 <Card className={classes.internalCard}>
                   <CardContent>
@@ -267,9 +304,15 @@ function App() {
                         onSubmit={(values, { setSubmitting }) => {
                           setSubmitting(true);
                           try {
-                            console.log(values.Cedula + values.Fecha);
+                            if(values.Cedula === "1725213555"){
+                              setcedula(false);
+                              setCorrect(true);
+                            }
                             handleOpen();
                             setSubmitting(false);
+                            //if(values.FechaNacimiento !== )
+                            console.log(values.Cedula + values.Fecha);
+                           
                           } catch (err) {
                             setSubmitting(false);
                           }
@@ -309,9 +352,10 @@ function App() {
                                     error={errors.Cedula && touched.Cedula}
                                     id="cedula"
                                     label="Número de cédula"
+                                    placeholder = "Por favor ingresa tu número de cédula"
                                     name="Cedula"
-                                    fullWidth={true} 
-                                    autoComplete = 'off'
+                                    fullWidth={true}
+                                    autoComplete="off"
                                     className={useStyles.margin}
                                     value={values.Cedula}
                                     onChange={handleChange}
@@ -340,17 +384,17 @@ function App() {
                                     }
                                     id="fecha"
                                     label="Fecha de nacimiento"
+                                    placeholder = "Por favor ingresa tu fecha de nacimiento"
                                     name="FechaNacimiento"
                                     fullWidth={true}
                                     className={useStyles.margin}
-                                    type = "date"
-                                    autoComplete = 'off'
+                                    type="date"
+                                    autoComplete="off"
                                     value={values.FechaNacimiento}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     InputLabelProps={{
-                                      shrink: true, 
-                                      
+                                      shrink: true,
                                     }}
                                     helperText={
                                       errors.FechaNacimiento &&
@@ -361,12 +405,11 @@ function App() {
                                 </Grid>
                                 <Grid item xs={12}>
                                   <div>
-                                    <Box className={classes.margin} >
-                                      <Typography 
+                                    <Box className={classes.margin}>
+                                      <Typography
                                         color="primary"
                                         className={classes.text}
                                         align="left"
-                                       
                                       >
                                         Recuerda las medidas de bioseguridad.
                                         Usa mascarilla y mantén la distancia de
@@ -376,7 +419,6 @@ function App() {
                                         color="primary"
                                         className={classes.text}
                                         align="left"
-                                       
                                       >
                                         Infórmate por medios oficiales y sigue
                                         las recomendaciones dadas por el
@@ -386,14 +428,13 @@ function App() {
                                         color="primary"
                                         className={classes.text}
                                         align="left"
-                                      
                                       >
                                         RECUERDA EL HORARIO DE ATENCIÓN EN EL
                                         CENTRO DE VACUNACIÓN ES DE 08:00 A
                                         17:00.
                                       </Typography>
                                     </Box>
-                                    <div >
+                                    <div>
                                       <center>
                                         <Button
                                           type="submit"
