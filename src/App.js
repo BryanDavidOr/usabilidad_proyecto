@@ -128,6 +128,7 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
+                          tabIndex = "0"
                         >
                           Nombre: ORTUÑO BARRERA BRYAN DAVID
                         </Typography>
@@ -137,6 +138,7 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
+                          tabIndex = "0"
                         >
                           PROVINCIA: PICHINCHA
                         </Typography>
@@ -146,6 +148,7 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
+                          tabIndex = "0"
                         >
                           CANTÓN: QUITO
                         </Typography>
@@ -155,6 +158,7 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
+                          tabIndex = "0"
                         >
                           PARROQUIA: SAN BARTOLO
                         </Typography>
@@ -164,6 +168,7 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
+                          tabIndex = "0"
                         >
                           CENTRO DE VACUNACIÓN: INSTITUTO SUPERIOR CONSEJO
                           PROVINCIAL DE PICHINCHA
@@ -174,6 +179,7 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
+                          tabIndex = "0"
                         >
                           DIRECCIÓN: AJAVI OE4-154 Y AV. CARDENAL DE LA TORRE
                         </Typography>
@@ -183,6 +189,7 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
+                          tabIndex = "0"
                         >
                           PRIMERA DOSIS: VACUNADO/A (SINOVAC)
                         </Typography>
@@ -192,6 +199,7 @@ function App() {
                           color="primary"
                           className={classes.text}
                           align="left"
+                          tabIndex = "0"
                         >
                           SEGUNDA DOSIS: VACUNADO/A (SINOVAC)
                         </Typography>
@@ -381,6 +389,7 @@ function App() {
                                         color="primary"
                                         className={classes.text}
                                         align="left"
+                                        tabIndex = "0"
                                       >
                                         Recuerda las medidas de bioseguridad.
                                         Usa mascarilla y mantén la distancia de
@@ -390,6 +399,7 @@ function App() {
                                         color="primary"
                                         className={classes.text}
                                         align="left"
+                                        tabIndex = "0"
                                       >
                                         Infórmate por medios oficiales y sigue
                                         las recomendaciones dadas por el
@@ -399,6 +409,7 @@ function App() {
                                         color="primary"
                                         className={classes.text}
                                         align="left"
+                                        tabIndex = "0"
                                       >
                                         RECUERDA EL HORARIO DE ATENCIÓN EN EL
                                         CENTRO DE VACUNACIÓN ES DE 08:00 A
