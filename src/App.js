@@ -331,7 +331,6 @@ function App() {
                                     error={errors.Cedula && touched.Cedula}
                                     id="cedula"
                                     label="Número de cédula"
-                                    placeholder = "Por favor ingresa tu número de cédula"
                                     name="Cedula"
                                     fullWidth={true}
                                     autoComplete="off"
