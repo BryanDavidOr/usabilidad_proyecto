@@ -362,12 +362,10 @@ function App() {
                                       touched.FechaNacimiento
                                     }
                                     id="fecha"
-                                    alt= "formato día, mes, año"
                                     label="Fecha de nacimiento"
                                     name="FechaNacimiento"
                                     fullWidth={true}
                                     className={useStyles.margin}
-                                    placeholder ="Formato (día, mes, año)"
                                     type="date"
                                     autoComplete="off"
                                     value={values.FechaNacimiento}
