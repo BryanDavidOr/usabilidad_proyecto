@@ -73,6 +73,8 @@ function App() {
   };
 
   const handleClose = () => {
+    setcedula(false);
+    setCorrect(false);
     setOpen(false);
   };
 
